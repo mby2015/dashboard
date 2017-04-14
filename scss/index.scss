@@ -1,0 +1,58 @@
+@import 'colors.scss';
+@import 'default.scss';
+
+.header {
+  background-color: $headerNavy;
+  height: 56px;
+  width: 100%;
+}
+
+.info {
+  background-color: $topDarkGray;
+  padding: 5px 0;
+  line-height: 1.0em;
+  overflow: hidden;
+  .user {
+	margin-right: 25px;
+	color: $white;
+	float:right;
+  }
+  .toggle {
+	width: 8px;
+	height: 8px;
+	display:inline-block;
+	cursor: pointer;
+	border-left: 1px solid $white;
+	border-top: 1px solid $white;
+	position:absolute;
+	right: 10px;
+  }
+  .toggle.up {
+	-ms-transform: rotate(45deg); /* IE 9 */
+	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+	transform: rotate(45deg);
+	top: 17px;
+  }
+  .toggle.down {
+	-ms-transform: rotate(-135deg); /* IE 9 */
+	-webkit-transform: rotate(-135deg); /* Chrome, Safari, Opera */
+	transform: rotate(-135deg);
+	top: 12px;
+  }
+  &-layer {
+	position:absolute;
+	right: 10px;
+	background-color:$white;
+	font-size: 9px;
+	line-height: 1.2em;
+	padding: 10px;
+	border:1px solid $topDarkGray;
+	li {
+	  white-space: nowrap;
+	  .label {
+		display:inline-block;
+		width: 70px;
+	  }
+	}
+  }
+}

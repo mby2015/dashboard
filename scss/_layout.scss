@@ -1,0 +1,121 @@
+@charset 'utf-8';
+
+.header {
+  background-color: $headerNavy;
+  height: 56px;
+  width: 100%;
+}
+
+.info {
+  background-color: $topDarkGray;
+  padding: 5px 0;
+  line-height: 1.0em;
+  overflow: hidden;
+  .user {
+	margin-right: 25px;
+	color: $userLightGray;
+	float:right;
+  }
+  .toggle {
+	width: 5px;
+	height: 5px;
+	display:inline-block;
+	cursor: pointer;
+	border-left: 1px solid $userLightGray;
+	border-top: 1px solid $userLightGray;
+	position:absolute;
+	right: 11px;
+  }
+  .toggle.up {
+	-ms-transform: rotate(45deg); /* IE 9 */
+	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+	transform: rotate(45deg);
+	top: 15px;
+  }
+  .toggle.down {
+	-ms-transform: rotate(-135deg); /* IE 9 */
+	-webkit-transform: rotate(-135deg); /* Chrome, Safari, Opera */
+	transform: rotate(-135deg);
+	top: 12px;
+  }
+  &-layer {
+	position:absolute;
+	right: 10px;
+	background-color:$white;
+	line-height: 1.2em;
+	padding: 10px;
+	border:1px solid $userLightGray;
+	li {
+	  white-space: nowrap;
+	  color: $lightGrayText;
+	  line-height: 1.0em;
+	  .label {
+		display:inline-block;
+		width: 50px;
+		color: $lightGrayText;
+	  }
+	  .text:before {
+		content: '';
+		width:1px;
+		height: 9px;
+		display:inline-block;
+		vertical-align: middle;
+		padding-left: 10px;
+		border-left: 1px solid $buttonBorderGray;
+		letter-spacing: -1px;
+	  }
+	}
+  }
+}
+
+.header {
+  .menu {
+	float:right;
+	height: 56px;
+	li {
+	  font-size: 14px;
+	  cursor: pointer;
+	  float:left;
+	  width: 100px;
+	  color: $white;
+	  height: 40px;
+	  padding-top: 16px;
+	  text-align: center;
+	  transition: color 250ms;
+	}
+	li:hover {
+	  background-color: $topHoverGray;
+	  color: $topHoverTextBlue;
+	}
+  }
+}
+
+.body {
+  .memo {
+	position: fixed;
+	width: 200px;
+	bottom: 0;
+	margin:10px auto 0;
+	.add {
+	  margin: 10px 0 10px 10px;
+	}
+	.remove {
+	  position:absolute;
+	}
+	&_wrap {
+	  margin: 0 auto;
+	  width: 180px;
+	}
+	.textarea {
+	  background-color:$textareaBlue;
+	  font-size: 14px;
+	  width: 160px;
+	  height: 160px;
+	  outline: 0;
+	  padding: 10px;
+	}
+  }
+  .container {
+	margin-left: 220px;
+  }
+}

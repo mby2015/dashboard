@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+.button {
+  background-color: $buttonBgColor;
+  border:1px solid $buttonBorderGray;
+  line-height: 28px;
+  padding: 0 12px;
+  border-radius: 2px;
+  color:$defaultText;
+  outline: 0;
+}

@@ -10,12 +10,12 @@ class Menu extends Component {
 			element
 		} = this;
 		
-		data.forEach(({ name, location }) => {
+		data.forEach(({ label, location }) => {
 			var li = new Element({ tag: 'li', dataset: {
-				name,
+				label,
 				location
 			}}).element;
-			li.innerHTML = name;
+			li.innerHTML = label;
 			eventUtils.on(li, 'click', (e) => {
 				this.moveTo(location)
 			});

@@ -2,6 +2,8 @@ import eventUtils from './event/utils';
 import Menu from './menu/index';
 import UserInfo from './userinfo/index';
 import InfoLayer from './userinfo/layer';
+import Content from './content/index';
+import MemoContainer from './memo/index';
 import '../scss/index.scss';
 
 eventUtils.start((config) => {
@@ -10,8 +12,10 @@ eventUtils.start((config) => {
 		eventUtils.off(gnb, 'click', id);
 	});
 
-	setMenu(config);
 	setUserInfo(config);
+	setMenu(config);
+	setMemo(config);
+	setContent(config);
 });
 
 function setMenu(config) {
@@ -39,4 +43,38 @@ function getUserInfoLayer(config) {
 	});
 	layer.render();
 	return layer;
+}
+
+function setMemo(config) {
+	let memo = new MemoContainer({
+		data: config.memos,
+		element: document.getElementById('memo')
+	});
+	let del_button = setRemoveMemoButton(memo);
+	memo.render();
+	memo.fixDeleteButton(del_button);
+	setAddMemoButton(memo);
+}
+
+function setAddMemoButton(memo) {
+	let memo_add = document.getElementById('add-memo');
+	eventUtils.on(memo_add, 'click', () => {
+		memo.add();
+	});
+}
+
+function setRemoveMemoButton(memo) {
+	let memo_remove = document.getElementById('remove-memo');
+	eventUtils.on(memo_remove, 'click', () => {
+		memo.remove();
+	});
+	return memo_remove;
+}
+
+function setContent(config) {
+	let content = new Content({
+		data: config.userInfo,
+		element: document.getElementById('content')
+	});
+	content.render();
 }

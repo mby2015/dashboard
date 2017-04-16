@@ -13,9 +13,9 @@ class UserInfoLayer extends Component {
 
 		this.element.innerHTML =
 			`<ul>
-				<li><span class="label">이름</span> ${name}</li>
-				<li><span class="label">이메일</span> ${email}</li>
-				<li><span class="label">내선</span> ${hotline}</li>
+				<li><span class="label">Name</span> <span class="text">${name}</span></li>
+				<li><span class="label">E-mail</span> <span class="text">${email}</span></li>
+				<li><span class="label">HotLine</span> <span class="text">${hotline}</span></li>
 			</ul>`;
 		this.toggle();
 	}

@@ -1,8 +1,10 @@
 import Element from '../common/Element'
+import Component from '../common/Component'
 import memoUtils from './utils'
 
-class Memo {
+class Memo extends Component {
 	constructor({ value, id }) {
+		super({value, id});
 		this.value = value;
 		this.mid = id;
 	}

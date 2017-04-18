@@ -4,6 +4,8 @@ let eventStore = {
 	click: []
 };
 
+let appendEventStore = {};
+
 function pick(store, target) {
 	let number = -1;
 	store.forEach((s, index) => {
@@ -61,8 +63,52 @@ function start(callback) {
 	}
 }
 
+function addEvent(element, type, callback) {
+	if (!element || !type || !callback) {
+		return;
+	}
+	if (!appendEventStore[type]) {
+		appendEventStore[type] = [];
+	}
+	appendEventStore[type].push(callback);
+	element.addEventListener(type, callback);
+}
+
+function addEvents(element, eventMap) {
+	if (!element || !eventMap) {
+		return;
+	}
+	Object.keys(eventMap).forEach(type => {
+		addEvent(element, type, eventMap[type]);
+	});
+}
+
+function removeEvent(element, type, callback) {
+	if (!element || !type || !callback) {
+		return;
+	}
+	element.removeEventListener(type, callback);
+}
+
+function reset(element) {
+	if (!element) {
+		return;
+	}
+	Object.keys(appendEventStore).forEach(key => {
+		let callbacks = appendEventStore[key];
+		callbacks.forEach(callback => {
+			element.removeEventListener(key, callback);
+		});
+
+	});
+}
+
 export default {
 	on,
 	off,
-	start
+	start,
+	addEvent,
+	addEvents,
+	removeEvent,
+	reset
 }

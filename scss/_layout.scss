@@ -93,7 +93,7 @@
 .body {
   .memo {
 	position: fixed;
-	width: 200px;
+	width: 220px;
 	bottom: 0;
 	margin:10px auto 0;
 	.add {
@@ -104,14 +104,15 @@
 	}
 	&_wrap {
 	  margin: 0 auto;
-	  width: 180px;
+	  width: 200px;
+	  max-height: 900px;
+	  overflow-y: auto;
 	}
 	.textarea {
 	  background-color:$textareaBlue;
 	  font-size: 14px;
 	  width: 160px;
 	  height: 160px;
-	  outline: 0;
 	  padding: 10px;
 	}
   }

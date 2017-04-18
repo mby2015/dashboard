@@ -32,7 +32,7 @@ function setUserInfo(config) {
 		element: document.getElementById('user')
 	});
 	userInfo.render();
-	userInfo.append(getUserInfoLayer(config));
+	userInfo.appendComponent(getUserInfoLayer(config));
 	userInfo.setEvents();
 }
 

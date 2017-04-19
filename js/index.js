@@ -47,7 +47,7 @@ function getUserInfoLayer(config) {
 
 function setMemo(config) {
 	let memo = new MemoContainer({
-		data: config.memos,
+		data: config.memos || {},
 		element: document.getElementById('memo')
 	});
 	let del_button = setRemoveMemoButton(memo);

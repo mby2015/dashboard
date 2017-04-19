@@ -19,6 +19,12 @@ class Component {
 		this.element.removeChild(component.element);
 		this.children.splice(this.children.indexOf(component), 1);
 	}
+	notify() {
+		this.children.forEach(child => child.notify());
+	}
+	update({data, element}) {
+		
+	}
 	destroy() {
 		eventUtils.reset(this.element);
 	}

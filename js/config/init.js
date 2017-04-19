@@ -5,7 +5,7 @@ export default {
 		nick: '소라카',
 		id: 'chamyo',
 		hotline: '7187',
-		email: 'chamyo@coupang.com'
+		email: 'kienaikizna@gmail.com'
 	},
 	menu: [
 		{
@@ -32,12 +32,6 @@ export default {
 			name: 'Scrum',
 			label: '스크럼',
 			location: '/scrum'
-		}
-	],
-	memos: [
-		{
-			id: 'id1',
-			content: '아하하하하'
 		}
 	]
 }

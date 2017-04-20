@@ -11,17 +11,18 @@ class UserInfoLayer extends Component {
 			}
 		} = this;
 
-		this.element.innerHTML =
+		this.element.html(
 			`<ul>
 				<li><span class="label">Name</span> <span class="text">${name}</span></li>
 				<li><span class="label">E-mail</span> <span class="text">${email}</span></li>
 				<li><span class="label">HotLine</span> <span class="text">${hotline}</span></li>
-			</ul>`;
+			</ul>`
+		);
 		this.toggle();
 	}
 
 	toggle() {
-		this.element.style.display = this.element.style.display ? '' : 'none';
+		this.element.style({ display: this.element.style('display') ? '' : 'none' });
 	}
 
 }

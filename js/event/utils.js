@@ -1,4 +1,5 @@
 import initConfig from '../config/init'
+import Node from '../common/Node'
 
 let eventStore = {
 	click: []
@@ -63,37 +64,41 @@ function start(callback) {
 	}
 }
 
-function addEvent(element, type, callback) {
-	if (!element || !type || !callback) {
+function addEvent(node, type, callback) {
+	if (!node || !type || !callback) {
 		return;
 	}
 	if (!appendEventStore[type]) {
 		appendEventStore[type] = [];
 	}
+	let element = node instanceof Node ? node.element : node;
 	appendEventStore[type].push(callback);
 	element.addEventListener(type, callback);
 }
 
-function addEvents(element, eventMap) {
-	if (!element || !eventMap) {
+function addEvents(node, eventMap) {
+	if (!node || !eventMap) {
 		return;
 	}
+	let element = node instanceof Node ? node.element : node;
 	Object.keys(eventMap).forEach(type => {
 		addEvent(element, type, eventMap[type]);
 	});
 }
 
-function removeEvent(element, type, callback) {
-	if (!element || !type || !callback) {
+function removeEvent(node, type, callback) {
+	if (!node || !type || !callback) {
 		return;
 	}
+	let element = node instanceof Node ? node.element : node;
 	element.removeEventListener(type, callback);
 }
 
-function reset(element) {
-	if (!element) {
+function reset(node) {
+	if (!node) {
 		return;
 	}
+	let element = node instanceof Node ? node.element : node;
 	Object.keys(appendEventStore).forEach(key => {
 		let callbacks = appendEventStore[key];
 		callbacks.forEach(callback => {

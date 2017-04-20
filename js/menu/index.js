@@ -1,4 +1,4 @@
-import Element from '../common/Element';
+import Node from '../common/Node';
 import Component from '../common/Component';
 import eventUtils from '../event/utils';
 
@@ -9,17 +9,17 @@ class Menu extends Component {
 			data = [],
 			element
 		} = this;
-		
+
 		data.forEach(({ label, location }) => {
-			var li = new Element({ tag: 'li', dataset: {
+			var li = new Node({ tag: 'li', dataset: {
 				label,
 				location
-			}}).element;
-			li.innerHTML = label;
-			eventUtils.on(li, 'click', (e) => {
+			}});
+			li.html(label);
+			eventUtils.on(li.element, 'click', (e) => {
 				this.moveTo(location)
 			});
-			element.appendChild(li);
+			element.appendElement(li);
 		});
 	}
 

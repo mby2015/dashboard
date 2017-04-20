@@ -15,7 +15,7 @@ class UserInfo extends Component {
 			}
 		} = this;
 
-		this.element.innerHTML = `${nick}(${email}) <span class="toggle ${getClass(this.isHide)}"></span>`;
+		this.element.html(`${nick}(${email}) <span class="toggle ${getClass(this.isHide)}"></span>`);
 	}
 
 	setEvents() {

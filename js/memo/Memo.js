@@ -1,6 +1,6 @@
-import Element from '../common/Element'
+import Node from '../common/Node'
 import Component from '../common/Component'
-import memoUtils from './utils'
+import Content from './content'
 
 class Memo extends Component {
 	constructor({ value, id }) {
@@ -12,26 +12,21 @@ class Memo extends Component {
 	render() {
 		let value = this.value;
 		let id = this.mid;
-		let memo = new Element({
-			tag: 'textarea',
+		this.element = new Node({
+			tag: 'div',
 			dataset: {
 				value,
 				id
 			}
 		});
-		memo.setProps({
+		let content = new Content({
+			id
+		});
+		content.init({
 			value,
-			id,
 			className: 'textarea'
 		});
-		memo.addEvent('keyup', e => {
-			this.value = e.target.value;
-			memoUtils.saveMemo({
-				id,
-				newMemo: e.target.value
-			})
-		});
-		this.element = memo.element;
+		this.appendComponent(content);
 	}
 	
 }

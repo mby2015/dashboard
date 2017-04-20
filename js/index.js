@@ -31,9 +31,8 @@ function setUserInfo(config) {
 		data: config.userInfo,
 		element: document.getElementById('user')
 	});
-	userInfo.render();
+	userInfo.init();
 	userInfo.appendComponent(getUserInfoLayer(config));
-	userInfo.setEvents();
 }
 
 function getUserInfoLayer(config) {
@@ -41,7 +40,7 @@ function getUserInfoLayer(config) {
 		data: config.userInfo,
 		element: document.getElementById('info-layer')
 	});
-	layer.render();
+	layer.init();
 	return layer;
 }
 

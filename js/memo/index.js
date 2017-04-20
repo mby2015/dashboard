@@ -68,14 +68,13 @@ class MemoContainer extends Component {
 
 	/**
 	 * 삭제버튼 위치 조정
-	 * @param target {HTMLElement} 선택한 Memo 엘리먼트
+	 * @param bound {HTMLElement} 선택한 Memo 엘리먼트
 	 */
-	setPosDeleteButton(target) {
-		const { top, height } = target.getBoundingClientRect();
+	setPosDeleteButton({top, height}) {
 		const gap = 20;
 		this.delete.style.display = '';
 		this.delete.style.left = '200px';
-		this.delete.style.top = (top + height + gap - target.parentNode.getBoundingClientRect().top) + 'px';
+		this.delete.style.top = (top + height + gap - this.element.getBounding().top) + 'px';
 	}
 
 	/**
@@ -86,13 +85,13 @@ class MemoContainer extends Component {
 	 */
 	buildMemo({ id, value = '' }) {
 		let child = new Memo({id, value});
-		child.render();
-		eventUtils.addEvent(child.element, 'focus', (e) => {
+		child.init();
+		child.on('focus', ({bound, id}) => {
 			this.overId = id;
-			this.setPosDeleteButton(e.target);
+			this.setPosDeleteButton(bound);
 		});
-		eventUtils.addEvent(child.element, 'blur', (e) => {
-			if (e.relatedTarget && e.relatedTarget === this.delete) {
+		child.on('blur', ({target}) => {
+			if (target && target === this.delete) {
 				this.remove();
 			} else {
 				this.overId = '';

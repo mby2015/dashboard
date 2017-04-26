@@ -1,10 +1,12 @@
 var path = require('path');
+var webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 	entry: './js/index.js',
 	output: {
 		filename: 'ui.bundle.js',
+		publicPath: '/build/',
 		path: path.resolve(__dirname, 'build')
 	},
 	module: {
@@ -20,6 +22,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new ExtractTextPlugin("styles.css"),
+		new webpack.NamedModulesPlugin(),
+		new ExtractTextPlugin("styles.css")
 	]
 };

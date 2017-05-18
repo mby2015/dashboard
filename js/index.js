@@ -11,7 +11,7 @@ eventUtils.start((config) => {
 	let id = eventUtils.on(gnb, 'click', e => {
 		eventUtils.off(gnb, 'click', id);
 	});
-
+	
 	setUserInfo(config);
 	setMenu(config);
 	setMemo(config);
@@ -77,4 +77,8 @@ function setContent(config) {
 		element: document.getElementById('content')
 	});
 	content.render();
+}
+
+if (module.hot){
+	module.hot.accept()
 }
